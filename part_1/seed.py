@@ -6,7 +6,7 @@ import json
 
 
 def insert_authors():
-    with open("authors.json", "r") as file:
+    with open("part_1/authors.json", "r") as file:
         authors = json.load(file)
 
     for author in authors:
@@ -17,18 +17,18 @@ def insert_authors():
         
 
 def insert_quotes():
-    with open("quotes.json", "r") as file:
+    with open("part_1/quotes.json", "r") as file:
         quotes = json.load(file)
 
     for quote in quotes:
         author = Author.objects(fullname=quote.get("author")).first()
         print(author.born_location)
-        """
+        
         Quote(tags=quote.get("tags"),
               author=author,
-              quote = quote.get("quote")).save()"""
+              quote = quote.get("quote")).save()
         
 
 if __name__ == "__main__":
-    #insert_authors()
+    insert_authors()
     insert_quotes()
